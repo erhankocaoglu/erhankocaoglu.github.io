@@ -2,22 +2,34 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Demo Uygulama</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Bildirimler</title>
 </head>
 <body>
-  <header>
-    <img src="images/logo.png" alt="Logo" id="site-logo">
-    <h1>Spring Boot + ngrok Demo</h1>
-  </header>
+  <h1>Bildirim Tablosu</h1>
+  <ul id="bildirimList"></ul>
 
-  <main>
-    <p>Bu sayfa statik olarak GitHub Pages’ten sunulur, API çağrıları ise ngrok üzerinden yapılır.</p>
-    <button id="fetch-btn">Backend’den Mesaj Al</button>
-    <pre id="output"></pre>
-  </main>
+  <script>
+    // Canlıda: Spring Boot API'nizin public URL'si
+    const API_URL = 'https://<YOUR_PUBLIC_HOST>/api/bildirim';
+    // Geliştirme için ngrok veya localhost da olabilir:
+    // const API_URL = 'http://localhost:8080/api/bildirim';
 
-  <script src="js/app.js"></script>
+    fetch(API_URL)
+      .then(res => {
+        if (!res.ok) throw new Error(res.statusText);
+        return res.json();
+      })
+      .then(data => {
+        const ul = document.getElementById('bildirimList');
+        data.forEach(b => {
+          const li = document.createElement('li');
+          li.textContent = `#${b.bildirimId} — ${b.baslik} (Güncellenme: ${new Date(b.guncellenmeTarihi).toLocaleString()})`;
+          ul.appendChild(li);
+        });
+      })
+      .catch(err => {
+        console.error('API çağrısı başarısız:', err);
+      });
+  </script>
 </body>
 </html>
