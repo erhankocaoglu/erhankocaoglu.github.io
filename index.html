@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo Uygulama</title>
+</head>
+<body>
+<h1>Spring Boot + ngrok DNS Demo</h1>
+<button id="btn">Backend’den mesaj al</button>
+<pre id="output"></pre>
+
+<script>
+  const apiBase = 'https://e89336c02a41.ngrok-free.app';
+  document.getElementById('btn').onclick = async () => {
+    try {
+      const res = await fetch(`${apiBase}/api/hello`);
+      const text = await res.text();
+      document.getElementById('output').innerText = text;
+    } catch (e) {
+      document.getElementById('output').innerText = 'Hata: ' + e;
+    }
+  };
+</script>
+</body>
+</html>
