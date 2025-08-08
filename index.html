@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bildirimler Sayfası</title>
-    <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Uygulama</title>
+  <!-- CSS dosyanızı bağlayın -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<header><h1>Bildirimler</h1></header>
-<main>
-    <img src="images/logo.png" alt="Logo" style="max-width:150px;" />
-    <ul id="notifications">
-        <!-- JS burada listeleyecek -->
-    </ul>
-</main>
-<script src="js/app.js"></script>
+  <!-- Üst banner veya logo -->
+  <header>
+    <img src="images/logo.png" alt="Logo" id="site-logo">
+    <h1>Spring Boot + ngrok Demo</h1>
+  </header>
+
+  <!-- Ana içerik -->
+  <main>
+    <p>Bu sayfa, GitHub Pages üzerinde statik olarak barınıyor ve backend çağrılarını ngrok üzerinden yapıyor.</p>
+    <button id="fetch-btn">Backend’den Mesaj Al</button>
+    <pre id="output"></pre>
+  </main>
+
+  <!-- Javascript dosyanızı bağlayın -->
+  <script src="js/app.js"></script>
 </body>
 </html>
