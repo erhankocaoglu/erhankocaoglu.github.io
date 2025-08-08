@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Demo Uygulama</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bildirimler Sayfası</title>
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-<h1>Spring Boot + ngrok DNS Demo</h1>
-<button id="btn">Backend’den mesaj al</button>
-<pre id="output"></pre>
-
-<script>
-  const apiBase = 'https://e89336c02a41.ngrok-free.app';
-  document.getElementById('btn').onclick = async () => {
-    try {
-      const res = await fetch(`${apiBase}/api/hello`);
-      const text = await res.text();
-      document.getElementById('output').innerText = text;
-    } catch (e) {
-      document.getElementById('output').innerText = 'Hata: ' + e;
-    }
-  };
-</script>
+<header><h1>Bildirimler</h1></header>
+<main>
+    <img src="images/logo.png" alt="Logo" style="max-width:150px;" />
+    <ul id="notifications">
+        <!-- JS burada listeleyecek -->
+    </ul>
+</main>
+<script src="js/app.js"></script>
 </body>
 </html>
